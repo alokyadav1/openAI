@@ -1,0 +1,16 @@
+.prompt .input-group input {
+    border: 2px solid grey;
+    border-radius: 10px 0 0 10px;
+}
+
+.prompt .input-group input:focus {
+    border: 2px solid blue;
+    outline: none;
+}
+
+.prompt .input-group button {
+    background-color: blue;
+    border: 2px solid blue;
+    border-radius: 0 10px 10px 0;
+    outline: none;
+}

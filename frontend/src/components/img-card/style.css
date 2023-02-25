@@ -1,0 +1,9 @@
+.img-card{
+    width: 400px;
+    height: auto;
+}
+.img-card button{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
