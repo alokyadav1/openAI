@@ -13,6 +13,12 @@ function SideBar() {
                 <li>
                     <NavLink to="/nasa">Nasa</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/news">News</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/date">Today's Event</NavLink>
+                </li>
             </ul>
         </div>
      );

@@ -1,7 +1,7 @@
 import Potd from "./Potd";
-import React, { useState } from "react";
+import React from "react";
 function Nasa() {
-    const [nasaData, setNasaData] = useState(null);
+    // const [nasaData, setNasaData] = useState(null);
 
     return ( 
         <div className="h-screen w-4/5">

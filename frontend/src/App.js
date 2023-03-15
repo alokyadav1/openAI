@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Layout from './Layout/Layout';
 import TextCompletion from './pages/TextCompletion/TextCompletion';
 import Nasa from './pages/NASA/Nasa';
+import NewsContainer from './pages/News/NewsContainer';
+import Date from './pages/Date/Date';
 function App() {
   return (
       <BrowserRouter>
@@ -12,6 +14,8 @@ function App() {
             <Route index element={<Output/>}/>
             <Route path='textCompletion' element={<TextCompletion/>} />
             <Route path='nasa' element={<Nasa/>} />
+            <Route path='news' element={<NewsContainer/>} />
+            <Route path='date' element={<Date/>} />
           </Route>
         </Routes>
       </BrowserRouter>

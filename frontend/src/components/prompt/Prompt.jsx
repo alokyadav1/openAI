@@ -8,6 +8,7 @@ function Prompt({ handleInputChange, handleSubmit, handleSource }) {
                         type="text"
                         className="w-full p-3"
                         onChange={handleInputChange}
+                        placeholder="Enter detailed description of image to generate"
                     />
                     <button className="btn text-white p-3" onClick={handleSubmit}>Submit</button>
                 </div>
