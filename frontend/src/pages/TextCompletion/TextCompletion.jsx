@@ -3,7 +3,7 @@ import { openai } from '../../config/api';
 import Error from '../../Error/Error';
 import ErrorReducer from '../../reducers/ErrorReducer';
 import Prompt from '../../components/prompt/Prompt';
-import TextResult from '../../components/TextResult';
+import TextResult from '../../components/TextCompletion/TextResult';
 import "./textCompletion.css"
 
 function TextCompletion() {

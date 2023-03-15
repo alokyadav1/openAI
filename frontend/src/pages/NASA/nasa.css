@@ -1,0 +1,25 @@
+.potd{
+    background-image: url(https://api.nasa.gov/assets/img/general/apod.jpg);
+    color: white;
+}
+.potd-inner-container{
+    background-color: rgba(255, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.potd .img-container{
+    height:90vh;
+    background-color: rebeccapurple;
+    color: white;
+}
+.potd .img-container img{
+    width: 100%;
+    height: calc(100% - 2rem);
+    border-radius: 1rem 1rem 0 0;
+}
+.potd .explanation{
+    padding: 3rem;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+}

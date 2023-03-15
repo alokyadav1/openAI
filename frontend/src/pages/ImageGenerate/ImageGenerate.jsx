@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from 'react';
 import "./output.css";
-import ImgCard from '../../components/img-card/ImgCard';
+import ImgCard from '../../components/ImageGenerate/img-card/ImgCard';
 import { openai } from '../../config/api';
 import Error from '../../Error/Error';
 import ErrorReducer from '../../reducers/ErrorReducer';
@@ -10,6 +10,7 @@ function ImageGenerate() {
     const [isLoading, setIsLoading] = useState(false);
     const [images, setImages] = useState([]);
     const [prompt, setPrompt] = useState('');
+    const [source, setSource] = useState('openai');
     const [error, dispatchError] = useReducer(ErrorReducer, null);
 
     const handleDeleteError = () => {
@@ -18,29 +19,42 @@ function ImageGenerate() {
     const handleInputChange = (e) => {
         setPrompt(e.target.value)
     }
+    const handleSource = (e) => {
+        setSource(e.target.value);
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        // setTimeout(() => {
-        //     setImages([...images, `https://source.unsplash.com/1600x900/?${prompt}`])
-        //     setIsLoading(false);
-        // }, 2000);
 
         if (!navigator.onLine) {
             dispatchError({ type: "SET_ERROR", payload: "You are not connected to Internet" });
         }
-        try {
-            const response = await openai.createImage({
-                prompt: prompt,
-                n: 1,
-                size: "1024x1024"
-            });
-            const imgUrl = response.data.data[0].url;
-            setImages([...images, imgUrl]);
-        } catch (error) {
-            dispatchError({ type: "SET_ERROR", payload: error.response.data.error.message });
-        } finally {
-            setIsLoading(false);
+
+        if (source === 'unsplash') {
+            try {
+                const response = await fetch(`https://source.unsplash.com/1024x1024/?${prompt}`);
+                const imgUrl = response.url;
+                setImages([...images, imgUrl]);
+            } catch (error) {
+                dispatchError({ type: "SET_ERROR", payload: error.response.data.error.message });
+            } finally {
+                setIsLoading(false);
+            }
+            
+        } else {
+            try {
+                const response = await openai.createImage({
+                    prompt: prompt,
+                    n: 1,
+                    size: "1024x1024"
+                });
+                const imgUrl = response.data.data[0].url;
+                setImages([...images, imgUrl]);
+            } catch (error) {
+                dispatchError({ type: "SET_ERROR", payload: error.response.data.error.message });
+            } finally {
+                setIsLoading(false);
+            }
         }
     }
     return (
@@ -76,8 +90,9 @@ function ImageGenerate() {
             <Prompt
                 handleInputChange={handleInputChange}
                 handleSubmit={handleSubmit}
+                handleSource={handleSource}
             />
-            
+
         </div>
     );
 }

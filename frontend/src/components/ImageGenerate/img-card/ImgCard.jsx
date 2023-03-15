@@ -5,8 +5,17 @@ import { Download } from '@mui/icons-material';
 
 function ImgCard({ url }) {
     //code to initiate the image download process in react
-    const handleDownload = () => {
-        saveAs(url, "image.jpg")
+    const handleDownload = async () => {
+        // const name = "image.jpg";
+        // const blob = await fetch(url, {
+        //     mode:"cors",
+        //     headers:{
+        //         "access-control-allow-origin":"*"
+        //     },
+        //     referrerPolicy:"origin-when-cross-origin"
+        // })
+        // .then(r => r.blob());
+        saveAs(url, "image.jpg");
     }
     return ( 
         <div className="img-card rounded-md text-center">

@@ -3,6 +3,7 @@ import Output from './pages/ImageGenerate/ImageGenerate';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Layout from './Layout/Layout';
 import TextCompletion from './pages/TextCompletion/TextCompletion';
+import Nasa from './pages/NASA/Nasa';
 function App() {
   return (
       <BrowserRouter>
@@ -10,6 +11,7 @@ function App() {
           <Route path='/' element={ <Layout/> }>
             <Route index element={<Output/>}/>
             <Route path='textCompletion' element={<TextCompletion/>} />
+            <Route path='nasa' element={<Nasa/>} />
           </Route>
         </Routes>
       </BrowserRouter>
