@@ -18,7 +18,7 @@ function NewsBox({ data, index }) {
                     {data.content}
                 </p>
             </div>
-            <p>read complete article :- <a href={data.url} className="text-blue-500">{data.url}</a></p>
+            <p>read complete article :- <a href={data.url} target="_blank" rel="noreferrer" className="text-blue-500">{data.url}</a></p>
         </div>
     );
 }
